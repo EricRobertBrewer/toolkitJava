@@ -127,8 +127,8 @@ public class Matrix {
 									String value = v.next().trim();
 									if(value.length() > 0)
 									{
-										ste.put(value, new Integer(vals));
-										ets.put(new Integer(vals), value);
+										ste.put(value, vals);
+										ets.put(vals, value);
 										vals++;
 									}
 								}
@@ -293,9 +293,9 @@ public class Matrix {
 			{
 				Integer count = tm.get(v);
 				if(count == null)
-					tm.put(v, new Integer(1));
+					tm.put(v, 1);
 				else
-					tm.put(v, new Integer(count.intValue() + 1));
+					tm.put(v, count + 1);
 			}
 		}
 		int maxCount = 0;

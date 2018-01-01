@@ -84,7 +84,7 @@ public class MLSystemManager {
 			Matrix testData = new Matrix();
 			testData.loadArff(evalParameter);
 			if (normalize)
-				testData.normalize(); // BUG! This may normalize differently from the training data. It should use the same ranges for normalization!
+				testData.normalize(data);
 
 			System.out.println("Calculating accuracy on separate test set...");
 			System.out.println("Test set name: " + evalParameter);

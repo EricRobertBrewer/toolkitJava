@@ -327,6 +327,20 @@ public class Matrix {
 		}
 	}
 
+	void normalize(Matrix buddy) {
+		for(int i = 0; i < cols(); i++) {
+			if(valueCount(i) == 0) {
+				double min = buddy.columnMin(i);
+				double max = buddy.columnMax(i);
+				for(int j = 0; j < rows(); j++) {
+					double v = get(j, i);
+					if(v != MISSING)
+						set(j, i, (v - min) / (max - min));
+				}
+			}
+		}
+	}
+
 	void print() {
 		System.out.println("@RELATION Untitled");
 		for(int i = 0; i < m_attr_name.size(); i++) {
